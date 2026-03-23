@@ -211,14 +211,38 @@
   }
   .ticketsource-iframe { width: 100%; border: none; display: none; }
 
-  @media (max-width:600px) {
-    .event-thumb { width: 120px; }
-    .event-info  { padding: 0 16px; }
-    .event-row-actions { padding: 0 16px; }
-    .details-btn-row { padding: 10px 14px; font-size: 9px; }
-    .event-row-title { font-size: 18px; }
-    .filter-btn { padding: 12px 10px; font-size: 8px; }
+ @media (max-width: 768px) {
+  /* This fixes the 'squash' by making everything full width */
+  body { padding: 0 10px !important; }
+
+  .event-card, .event-item, .flex-container { 
+    display: flex !important;
+    flex-direction: column !important; /* Stacks image on top of text */
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px 10px !important;
   }
+
+  /* Makes the images a good size for phones */
+  .event-thumb, img {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    margin: 0 auto 15px auto !important;
+  }
+
+  /* Makes the text readable (no more tiny 8px fonts!) */
+  .event-row-title, h2 { font-size: 24px !important; line-height: 1.2 !important; }
+  .event-info, p { font-size: 16px !important; width: 100% !important; padding: 0 !important; }
+  
+  /* Makes the buttons look like proper buttons for thumbs */
+  .details-btn-row, .filter-btn {
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+    width: auto !important;
+    display: inline-block !important;
+  }
+}
 </style>
 </head>
 <body>
