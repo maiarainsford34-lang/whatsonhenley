@@ -436,7 +436,7 @@ body {
       <div class="event-venue-tag">The Kenton Theatre</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-clare-teal" onclick="event.stopPropagation();togglePanel('clare-teal')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/clare-teal.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-clare-teal">
@@ -480,7 +480,7 @@ body {
       <div class="event-venue-tag">Purdy's Pop Up</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-joe-webb" onclick="event.stopPropagation();togglePanel('joe-webb')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/joe-webb.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-joe-webb">
@@ -524,7 +524,7 @@ body {
       <div class="event-venue-tag">The Henley Town Hall Ballroom</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-buena-bristol" onclick="event.stopPropagation();togglePanel('buena-bristol')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/buena-bristol.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-buena-bristol">
@@ -576,7 +576,7 @@ body {
       <div class="event-venue-tag">The New Orleans — Upper Thames</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-riverboat-shuffle" onclick="event.stopPropagation();togglePanel('riverboat-shuffle')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/riverboat-shuffle.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-riverboat-shuffle">
@@ -620,7 +620,7 @@ body {
       <div class="event-venue-tag">The Kenton Theatre</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-joe-stilgoe" onclick="event.stopPropagation();togglePanel('joe-stilgoe')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/joe-stilgoe.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-joe-stilgoe">
@@ -664,7 +664,7 @@ body {
       <div class="event-venue-tag">The Henley Town Hall Ballroom</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-bruce-ilett" onclick="event.stopPropagation();togglePanel('bruce-ilett')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/big-band-swing-dance.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-bruce-ilett">
@@ -708,7 +708,7 @@ body {
       <div class="event-venue-tag">Purdy's Pop Up</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-liane-carroll" onclick="event.stopPropagation();togglePanel('liane-carroll')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/liane-carroll.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-liane-carroll">
@@ -760,7 +760,7 @@ body {
       <div class="event-venue-tag">The New Orleans — Upper Thames</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-salute-satchmo" onclick="event.stopPropagation();togglePanel('salute-satchmo')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/salute-satchmo.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-salute-satchmo">
@@ -804,7 +804,7 @@ body {
       <div class="event-venue-tag">The Kenton Theatre</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-sentimental-journey" onclick="event.stopPropagation();togglePanel('sentimental-journey')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/sentimental-journey.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-sentimental-journey">
@@ -848,7 +848,7 @@ body {
       <div class="event-venue-tag">Purdy's Pop Up</div>
     </div>
     <div class="event-row-actions">
-      <button class="details-btn-row" id="btn-festival-allstars" onclick="event.stopPropagation();togglePanel('festival-allstars')">DETAILS</button>
+      <button class="details-btn-row" onclick="window.open('https://maiarainsford34-lang.github.io/whatsonhenley/events/festival-allstars.html','_blank')">DETAILS</button>
     </div>
   </div>
   <div class="event-panel" id="panel-festival-allstars">
@@ -899,8 +899,19 @@ function togglePanel(id) {
     panel.classList.add('open');
     btn.classList.add('open');
     btn.textContent = 'CLOSE';
-    // Scroll the event row into view
-    document.getElementById('panel-' + id).previousElementSibling.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Wait for panel to render then scroll
+    setTimeout(function() {
+      const row = document.getElementById('panel-' + id).previousElementSibling;
+      const rowTop = row.getBoundingClientRect().top + window.pageYOffset;
+      
+      // Scroll within iframe
+      window.scrollTo({ top: rowTop - 20, behavior: 'smooth' });
+      
+      // Tell parent Wix page to scroll too
+      const absTop = row.getBoundingClientRect().top;
+      window.parent.postMessage({ type: 'scrollTo', top: absTop }, '*');
+    }, 50);
   }
 }
 
